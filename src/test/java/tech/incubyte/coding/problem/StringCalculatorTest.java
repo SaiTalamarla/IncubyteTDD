@@ -64,4 +64,14 @@ public class StringCalculatorTest
 		// Then
 		assertEquals(15, resultObtained);
 	}
+	
+	@Test
+	public void add_UnKnownNumbersStartsWithDelimiter_ReturnsSumIgnoringDelimiter() {
+		// Given
+		String input = "//;\n1;2";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(3, resultObtained);
+	}
 }
