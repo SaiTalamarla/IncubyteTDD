@@ -3,6 +3,7 @@ package tech.incubyte.coding.problem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class StringCalculatorTest 
@@ -73,5 +74,18 @@ public class StringCalculatorTest
 		int resultObtained = stringCalculator.add(input);
 		// Then
 		assertEquals(3, resultObtained);
+	}
+	
+	@Test
+	public void add_negativeNumber_ThrowsException() {
+		// Given
+		String input = "-1,2";
+		// When
+		RuntimeException e = assertThrows(RuntimeException.class, () -> {
+			stringCalculator.add(input);
+		});
+
+		// Then
+		assertEquals("negatives not allowed -1 ", e.getMessage());
 	}
 }
