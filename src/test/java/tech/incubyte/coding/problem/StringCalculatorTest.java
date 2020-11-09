@@ -54,4 +54,14 @@ public class StringCalculatorTest
 		// Then
 		assertEquals(15, resultObtained);
 	}
+	
+	@Test
+	public void add_UnKnownNumbersWithNewLineAsValid_ReturnsSumWithNewLine() {
+		// Given
+		String input = "1\n2,3,4,5";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(15, resultObtained);
+	}
 }
