@@ -1,5 +1,11 @@
 package tech.incubyte.coding.problem;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StringCalculator 
 {
@@ -42,13 +48,16 @@ public class StringCalculator
     }
 
     public String[] splitLogic(String numbersGiven) {
-		if (numbersGiven.startsWith("//")) {
-            Matcher matchDelimiters = Pattern.compile("//(.*)\n(.*)").matcher(numbersGiven);
-            matchDelimiters.matches();
+		Matcher matchDelimiters = Pattern.compile("//(.*)\n(.*)").matcher(numbersGiven);
+        if (matchDelimiters.find()) {
             String customDelimiter = matchDelimiters.group(1);
+            if (customDelimiter.startsWith("[")) {
+                customDelimiter = customDelimiter.substring(1, customDelimiter.length() - 1);
+            }
             String numbersInput = matchDelimiters.group(2);
-            return numbersInput.split(customDelimiter);
+            return numbersInput.split(
+                    Stream.of(customDelimiter.split("]\\[")).map(Pattern::quote).collect(Collectors.joining("|")));
         }
-        return numbersGiven.split(",|\n");
+                    return numbersGiven.split(",|\n");
     }
 }
