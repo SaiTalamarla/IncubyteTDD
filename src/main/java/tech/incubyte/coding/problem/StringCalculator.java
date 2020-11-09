@@ -30,6 +30,10 @@ public class StringCalculator
         }
 
         if (negativeNum.size() > 0) {
+			StringBuilder negatives = new StringBuilder();
+            for (String string : negativeNum) {
+                negatives.append(string).append(" ");
+            }
             throw new RuntimeException("negatives not allowed " + negativeNum.get(0)+ " ");
         }
         
