@@ -1,5 +1,6 @@
 package tech.incubyte.coding.problem;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -141,4 +142,12 @@ public class StringCalculatorTest
 		// Then
 		assertEquals(6, resultObtained);
 	}
+	
+	@AfterAll
+    @Test
+    public static void addInvokedCount(){
+
+        int result = StringCalculator.getAddCount();
+        assertEquals(12, result);
+    }
 }
