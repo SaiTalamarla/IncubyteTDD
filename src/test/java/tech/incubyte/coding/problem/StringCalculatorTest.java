@@ -34,4 +34,14 @@ public class StringCalculatorTest
 		// Then
 		assertEquals(1, resultObtained);
 	}
+	
+	@Test
+	public void add_TwoNumbers_ReturnsSumOfTwoNumber1() {
+		// Given
+		String input = "1,2";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(3, resultObtained);
+	}
 }
