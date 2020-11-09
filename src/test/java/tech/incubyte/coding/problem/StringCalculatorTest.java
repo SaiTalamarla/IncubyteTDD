@@ -44,4 +44,14 @@ public class StringCalculatorTest
 		// Then
 		assertEquals(3, resultObtained);
 	}
+	
+	@Test
+	public void add_UnKnownNumbers_ReturnsSumOfUnknownNumbers() {
+		// Given
+		String input = "1,2,3,4,5";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(15, resultObtained);
+	}
 }
