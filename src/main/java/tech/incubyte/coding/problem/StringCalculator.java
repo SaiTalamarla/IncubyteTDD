@@ -9,10 +9,10 @@ import java.util.stream.Stream;
 
 public class StringCalculator 
 {
-    
+    private static int addCount;
 
 	public int add(String numbersGiven) {
-        
+        GetCalledCount();
         if (numbersGiven.isEmpty())
             return 0;
         else 
@@ -59,5 +59,14 @@ public class StringCalculator
                     Stream.of(customDelimiter.split("]\\[")).map(Pattern::quote).collect(Collectors.joining("|")));
         }
                     return numbersGiven.split(",|\n");
+    }
+	
+	public int GetCalledCount(){
+
+        return addCount++;
+    }
+
+    public static int getAddCount() {
+        return addCount;
     }
 }
