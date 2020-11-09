@@ -28,6 +28,13 @@ public class StringCalculator
     }
 
     public String[] splitLogic(String numbersGiven) {
+		if (numbersGiven.startsWith("//")) {
+            Matcher matchDelimiters = Pattern.compile("//(.*)\n(.*)").matcher(numbersGiven);
+            matchDelimiters.matches();
+            String customDelimiter = matchDelimiters.group(1);
+            String numbersInput = matchDelimiters.group(2);
+            return numbersInput.split(customDelimiter);
+        }
         return numbersGiven.split(",|\n");
     }
 }
