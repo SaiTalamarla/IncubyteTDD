@@ -101,4 +101,14 @@ public class StringCalculatorTest
 		// Then
 		assertEquals("negatives not allowed -1 -2 -3 ", e.getMessage());
 	}
+	
+	@Test
+	public void add_numbersGreaterThanThousand_ReturnsSumOfNumsLessthanThousand() {
+		// Given
+		String input = "2,1000";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(2, resultObtained);
+	}
 }
