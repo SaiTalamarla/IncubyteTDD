@@ -20,7 +20,8 @@ public class StringCalculator
         List<String> negativeNum = new ArrayList<>();
         inputNumbers = splitLogic(numbersGiven);
         for (int i = 0; i < inputNumbers.length; i++) {
-            if (inputNumbers[i] != null && !inputNumbers[i].isEmpty()){
+            if (inputNumbers[i] != null && !inputNumbers[i].isEmpty()
+					&& Integer.parseInt(inputNumbers[i]) < 1000){
                 if (Integer.parseInt(inputNumbers[i]) < 0) {
                     negativeNum.add(inputNumbers[i]);
                 }
