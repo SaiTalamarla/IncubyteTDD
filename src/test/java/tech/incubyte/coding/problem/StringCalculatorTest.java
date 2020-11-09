@@ -121,4 +121,14 @@ public class StringCalculatorTest
 		// Then
 		assertEquals(6, resultObtained);
 	}
+	
+	@Test
+	public void add_UnKnownNumbersWithMultipleDelimiter_ReturnsSumIgnoringDelimiter() {
+		// Given
+		String input = "//[*][%]\n1*2%3";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(6, resultObtained);
+	}
 }
