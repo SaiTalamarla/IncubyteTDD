@@ -88,4 +88,17 @@ public class StringCalculatorTest
 		// Then
 		assertEquals("negatives not allowed -1 ", e.getMessage());
 	}
+	
+	@Test
+	public void add_multipleNegativeNumber_ThrowsException() {
+		// Given
+		String input = "-1,-2,-3";
+		// When
+		RuntimeException e = assertThrows(RuntimeException.class, () -> {
+			stringCalculator.add(input);
+		});
+
+		// Then
+		assertEquals("negatives not allowed -1 -2 -3 ", e.getMessage());
+	}
 }
