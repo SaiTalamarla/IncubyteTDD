@@ -17,11 +17,20 @@ public class StringCalculator
     public int sumOfNumbers(String numbersGiven) {
         String[] inputNumbers = new String[numbersGiven.length()];
         int numbersSum = 0;
-        
+        List<String> negativeNum = new ArrayList<>();
         inputNumbers = splitLogic(numbersGiven);
         for (int i = 0; i < inputNumbers.length; i++) {
-            if (inputNumbers[i] != null && !inputNumbers[i].isEmpty())
-                    numbersSum += Integer.parseInt(inputNumbers[i]);
+            if (inputNumbers[i] != null && !inputNumbers[i].isEmpty()){
+                if (Integer.parseInt(inputNumbers[i]) < 0) {
+                    negativeNum.add(inputNumbers[i]);
+                }
+                numbersSum += Integer.parseInt(inputNumbers[i]);
+            }
+                   
+        }
+
+        if (negativeNum.size() > 0) {
+            throw new RuntimeException("negatives not allowed " + negativeNum.get(0)+ " ");
         }
         
         return numbersSum;
