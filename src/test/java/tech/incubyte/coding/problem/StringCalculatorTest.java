@@ -10,7 +10,7 @@ public class StringCalculatorTest
 	
 	private static StringCalculator stringCalculator;
 
-	@BeforeEach
+	@BeforeEach	
 	public void setupObject() {
 		stringCalculator = new StringCalculator();
 	}
@@ -23,5 +23,15 @@ public class StringCalculatorTest
 		int resultObtained = stringCalculator.add(input);
 		// Then
 		assertEquals(0, resultObtained);
+	}
+	
+	@Test
+	public void add_SingleNumber_ReturnsSameNumber1() {
+		// Given
+		String input = "1";
+		// When
+		int resultObtained = stringCalculator.add(input);
+		// Then
+		assertEquals(1, resultObtained);
 	}
 }
