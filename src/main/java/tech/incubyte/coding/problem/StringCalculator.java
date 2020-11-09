@@ -28,6 +28,6 @@ public class StringCalculator
     }
 
     public String[] splitLogic(String numbersGiven) {
-        return numbersGiven.split(",");
+        return numbersGiven.split(",|\n");
     }
 }
